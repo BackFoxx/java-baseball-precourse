@@ -1,36 +1,16 @@
 package baseball;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
-
-    private static final int startInclusive = 1;
-    private static final int endInclusive = 10;
-
-    public static class Question {
-        final private int[] question;
-
-        public Question() {
-            question = new int[3];
-            question[0] = Randoms.pickNumberInRange(startInclusive, endInclusive);
-            question[1] = Randoms.pickNumberInRange(startInclusive, endInclusive);
-            question[2] = Randoms.pickNumberInRange(startInclusive, endInclusive);
-        }
-
-        public int[] getQuestion() {
-            return question;
-        }
-    }
-
     public static void main(String[] args) {
         //TODO: 숫자 야구 게임 구현
 
         //게임 전체 진행
         while (true) {
             //랜덤한 수 생성
-            Question questionVO = new Question();
-            int[] question = questionVO.getQuestion();
+            QuestionVO questionVO = new QuestionVO();
+            int[] question = questionVO.getQuestionVO();
 
             //답변 제시
             while (true) {
