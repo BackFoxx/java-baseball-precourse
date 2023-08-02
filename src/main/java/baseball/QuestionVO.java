@@ -13,9 +13,6 @@ public class QuestionVO {
 		question[0] = Randoms.pickNumberInRange(startInclusive, endInclusive);
 		question[1] = Randoms.pickNumberInRange(startInclusive, endInclusive);
 		question[2] = Randoms.pickNumberInRange(startInclusive, endInclusive);
-		System.out.println(question[0]);
-		System.out.println(question[1]);
-		System.out.println(question[2]);
 	}
 
 	//문제와 답변의 일치 정도에 따른 힌트 출력
