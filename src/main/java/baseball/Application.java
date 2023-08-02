@@ -10,22 +10,15 @@ public class Application {
         while (true) {
             //랜덤한 수 생성
             QuestionVO questionVO = new QuestionVO();
-            int[] question = questionVO.getQuestionVO();
 
-            //답변 제시
+            //문제와 답변의 일치 여부 판단
             while (true) {
+                //답변 제시
                 System.out.print("숫자를 입력해주세요 : ");
                 AnswerVO answerVO = new AnswerVO();
-                String answer = answerVO.getAnswer();
 
-                //문자열 answer을 숫자배열 answerArray로 변환
-                String[] answerStrings = answer.split("");
-                int[] answerArray = new int[answerStrings.length];
-                for (int i = 0; i < answerStrings.length; i++) {
-                    answerArray[i] = Integer.parseInt(answerStrings[i]);
-                }
-
-                int[] result = compareCorrectAnswer(question, answerArray);
+                //문제와 답변의 일치 정에에 따른 힌트 출력
+                int[] result = questionVO.compareCorrectAnswer(answerVO.answerToAnswerArray());
                 int strike = result[0];
                 int ball = result[1];
 
@@ -46,6 +39,7 @@ public class Application {
                     break;
                 }
             }
+
             //게임 재실행 여부 판단
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             int num = Integer.parseInt(Console.readLine());
@@ -55,24 +49,5 @@ public class Application {
                 break;
             }
         }
-    }
-
-    //문제와 답변의 일치 여부 판단
-    private static int[] compareCorrectAnswer(int[] question, int[] answerArray) {
-        int strike = 0;
-        int ball = 0;
-
-        for (int i = 0; i < question.length; i++) {
-            int j = (i + 1) % answerArray.length;
-            int k = (i + 2) % answerArray.length;
-
-            if (question[i] == answerArray[i]) {
-                strike++;
-            } else if (question[i] == answerArray[j] || question[i] == answerArray[k]) {
-                ball++;
-            }
-        }
-
-        return new int[] {strike, ball};
     }
 }
