@@ -11,10 +11,6 @@ public class AnswerVO {
 		containsZeroException();
 	}
 
-	public String getAnswer() {
-		return answer;
-	}
-
 	//문자열 answer을 숫자배열 answerArray로 변환
 	public int[] answerToAnswerArray() {
 		String[] answerStrings = answer.split("");
