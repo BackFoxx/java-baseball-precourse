@@ -19,7 +19,7 @@ public class Application {
                 AnswerVO answerVO = new AnswerVO(answer);
 
                 //문제와 답변의 일치 정에에 따른 힌트 출력
-                int[] result = questionVO.compareCorrectAnswer(answerVO.answerToAnswerArray());
+                int[] result = questionVO.compareTo(answerVO);
                 int strike = result[0];
                 int ball = result[1];
 

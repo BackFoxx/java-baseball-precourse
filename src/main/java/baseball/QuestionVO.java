@@ -16,7 +16,8 @@ public class QuestionVO {
 	}
 
 	//문제와 답변의 일치 정도에 따른 힌트 출력
-	public int[] compareCorrectAnswer(int[] answerArray) {
+	public int[] compareTo(AnswerVO answerVO) {
+		int[] answerArray = answerVO.answerToAnswerArray();
 		int strike = 0;
 		int ball = 0;
 
